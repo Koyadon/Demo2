@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>新宿弁当テイクアウト</title>
+  <link rel="stylesheet" href="style3.css">
+  <script type="text/javascript">
+    
+    function keisan(){
+    
+      // 設定開始
+    
+      // 商品1
+      var price1 = document.form1.goods1.selectedIndex * 300; // 単価を設定
+      document.form1.field1.value = price1; // 小計を表示
+    
+      // 商品2
+      var price2 = document.form1.goods2.selectedIndex * 400; // 単価を設定
+      document.form1.field2.value = price2; // 小計を表示
+    
+      // 商品3
+      var price3 = document.form1.goods3.selectedIndex * 500; // 単価を設定
+      document.form1.field3.value = price3; // 小計を表示
+    
+      // 合計を計算
+      var total = price1 + price2 + price3;
+    
+      // 設定終了
+    
+    
+      document.form1.field_total.value = total; // 合計を表示
+    
+    }
+    
+    </script> 
+</head>
+
+<body>
+  <script src="js/bootstrap.min.js"></script>
+
+  <div class="textlink textlink01" id="select">
+    <p>
+      <a href="home.html">ホーム</a>
+      <a href="menu.html">メニュー</a>
+      <a href="takeout.html">テイクアウト予約</a>
+    </p>
+  </div>
+
+  <h1 class="ichiran">テイクアウト予約</h1>
+
+  <center>
+    <form method="post" action="sousin.html" name="form1">
+    <dl>
+      <dt>お受け取り日時</dt>
+      <dd><input type="datetime-local"></dd>
+
+      <dt>商品選択</dt>
+      <table>
+        <tr>
+        <th>商品名</th>
+        <th>単価</th>
+        <th>数量</th>
+        <th>金額</th>
+        </tr>
+        <tr>
+        <td>のり弁当</td>
+        <td align="right">300円</td>
+        <td><select name="goods1" onChange="keisan()">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        </select></td>
+        <td><input type="text" name="field1" size="8" value="0"> 円</td>
+        </tr>
+        <tr>
+        <td>からあげ弁当</td>
+        <td align="right">400円</td>
+        <td><select name="goods2" onChange="keisan()">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        </select></td>
+        <td><input type="text" name="field2" size="8" value="0"> 円</td>
+        </tr>
+        <tr>
+        <td>幕ノ内弁当</td>
+        <td align="right">500円</td>
+        <td><select name="goods3" onChange="keisan()">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        </select></td>
+        <td><input type="text" name="field3" size="8" value="0"> 円</td>
+        </tr>
+        <tr>
+        <td align="right" colspan="3"><strong>合計</strong></td>
+        <td><input type="text" name="field_total" size="8" value="0"> 円</td>
+        </tr>
+        </table>
+
+      <dt>お名前</dt>
+      <dd><input type="text" name="name"></dd>
+    
+      <dt>メールアドレス</dt>
+      <dd><input type="email" name="email"></dd>
+
+      <dt>備考欄</dt>
+      <dd><textarea name="message" cols="20" rows="8"></textarea></dd>
+
+      <dt>送信ボタン</dt>
+      <dd><input type="submit" value="送信"></dd>
+
+    </dl>
+  </form>
+  </center>
+
+</body>
+
+</html>
